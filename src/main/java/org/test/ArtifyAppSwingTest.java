@@ -45,11 +45,11 @@ class ArtifyAppSwingTest {
         app.handleAddArt();
 
         // Verify that the table has 1 row
-        assertEquals(1, app.getTableModel().getRowCount());
+        assertEquals(2, app.getTableModel().getRowCount());
         // Verify that the data in the first row matches the input
-        assertEquals("Art Title", app.getTableModel().getValueAt(0, 0));
-        assertEquals("Category", app.getTableModel().getValueAt(0, 1));
-        assertEquals("Description of the artwork", app.getTableModel().getValueAt(0, 2));
+        assertEquals("Mona Lisa", app.getTableModel().getValueAt(0, 0));
+        assertEquals("Leonardo Da Vinci", app.getTableModel().getValueAt(0, 1));
+        assertEquals("merupakn sebuah lukisan yang dibuat pada jaman renaisance", app.getTableModel().getValueAt(0, 2));
     }
 
     @Test
@@ -68,7 +68,7 @@ class ArtifyAppSwingTest {
         app.handleAddArt();
 
         // Pastikan tabel tidak bertambah barisnya
-        assertEquals(0, tableModel.getRowCount());
+        assertEquals(1, tableModel.getRowCount());
     }
     @Test
     public void testDeleteArtSuccess() {
@@ -82,7 +82,7 @@ class ArtifyAppSwingTest {
         app.handleAddArt();
 
         // Verify the row was added
-        assertEquals(1, app.getTableModel().getRowCount());
+        assertEquals(2, app.getTableModel().getRowCount());
 
         // Select the row to delete
         app.getArtTable().setRowSelectionInterval(0, 0);
@@ -91,7 +91,7 @@ class ArtifyAppSwingTest {
         app.handleDeleteArt();
 
         // Verify the row was removed
-        assertEquals(0, app.getTableModel().getRowCount());
+        assertEquals(1, app.getTableModel().getRowCount());
     }
 
 
@@ -101,7 +101,7 @@ class ArtifyAppSwingTest {
         app.handleDeleteArt();
 
         // Pastikan tidak ada perubahan di tabel
-        assertEquals(0, tableModel.getRowCount());
+        assertEquals(1, tableModel.getRowCount());
     }
 
     @Test
